@@ -4,34 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MEMÓRIA PR | Cartas que Contam Histórias</title>
+<title>MEMÓRIA PR | Desafio das Cartas</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
 
 :root{
     --verde:#087443;
-    --verde2:#0ca66a;
-    --verde3:#063d2b;
+    --verde-claro:#16a66d;
+    --verde-escuro:#063b2b;
     --amarelo:#ffd447;
-    --amarelo2:#ffb800;
-    --vermelho:#d93636;
-    --azul:#2677d8;
-    --roxo:#7545c7;
-    --rosa:#d94883;
-    --laranja:#ef7d24;
-    --preto:#101413;
-    --cinza:#1b2220;
-    --cinza2:#26302c;
-    --branco:#fffdf7;
-    --texto:#f5f5f0;
-    --sombra:0 18px 45px rgba(0,0,0,.25);
+    --amarelo-escuro:#e5ae00;
+    --creme:#fffaf0;
+    --fundo:#08120e;
+    --fundo2:#0e1c16;
+    --branco:#ffffff;
+    --cinza:#aab8b1;
+    --vermelho:#e64c4c;
+    --azul:#4d8cff;
+    --roxo:#9b6cff;
+    --rosa:#e65b9b;
+    --laranja:#ef8a3a;
 }
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -39,67 +38,13 @@ html{
 }
 
 body{
-    min-height:100vh;
     font-family:"DM Sans",sans-serif;
-    color:var(--texto);
+    color:white;
+    min-height:100vh;
     background:
-        radial-gradient(circle at 15% 10%,rgba(12,166,106,.18),transparent 25%),
-        radial-gradient(circle at 90% 20%,rgba(255,212,71,.12),transparent 25%),
-        linear-gradient(135deg,#07100d,#101713 45%,#07100d);
-    overflow-x:hidden;
-}
-
-/* =========================
-   FUNDO DECORATIVO
-========================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:.05;
-    background-image:
-        linear-gradient(45deg,#fff 25%,transparent 25%),
-        linear-gradient(-45deg,#fff 25%,transparent 25%),
-        linear-gradient(45deg,transparent 75%,#fff 75%),
-        linear-gradient(-45deg,transparent 75%,#fff 75%);
-    background-size:40px 40px;
-    background-position:0 0,0 20px,20px -20px,-20px 0;
-    z-index:-2;
-}
-
-.blob{
-    position:fixed;
-    border-radius:50%;
-    filter:blur(80px);
-    opacity:.18;
-    pointer-events:none;
-    z-index:-1;
-}
-
-.blob.one{
-    width:280px;
-    height:280px;
-    background:var(--verde2);
-    top:-100px;
-    left:-80px;
-}
-
-.blob.two{
-    width:320px;
-    height:320px;
-    background:var(--amarelo2);
-    right:-150px;
-    bottom:5%;
-}
-
-.blob.three{
-    width:220px;
-    height:220px;
-    background:var(--roxo);
-    left:40%;
-    top:45%;
+        radial-gradient(circle at 10% 10%,rgba(22,166,109,.18),transparent 25%),
+        radial-gradient(circle at 90% 80%,rgba(255,212,71,.10),transparent 25%),
+        linear-gradient(135deg,var(--fundo),var(--fundo2),var(--fundo));
 }
 
 /* =========================
@@ -107,15 +52,15 @@ body::before{
 ========================= */
 
 header{
-    width:100%;
-    padding:18px 6%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
     position:sticky;
     top:0;
-    z-index:50;
-    background:rgba(7,16,13,.86);
+    z-index:100;
+    height:75px;
+    padding:0 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(8,18,14,.88);
     backdrop-filter:blur(18px);
     border-bottom:1px solid rgba(255,255,255,.08);
 }
@@ -127,33 +72,26 @@ header{
     cursor:pointer;
 }
 
-.logo-mark{
-    width:48px;
-    height:48px;
-    border-radius:15px;
-    background:linear-gradient(135deg,var(--verde2),var(--verde));
+.logo-icon{
+    width:46px;
+    height:46px;
+    border-radius:14px;
     display:grid;
     place-items:center;
-    font-size:25px;
-    box-shadow:0 8px 25px rgba(12,166,106,.3);
+    background:linear-gradient(135deg,var(--verde-claro),var(--verde));
+    font-size:23px;
+    box-shadow:0 8px 25px rgba(22,166,109,.3);
 }
 
-.logo-text{
-    line-height:1;
-}
-
-.logo-text strong{
-    font-family:"Bebas Neue",sans-serif;
-    letter-spacing:2px;
-    font-size:26px;
-}
-
-.logo-text small{
-    display:block;
-    color:#aebbb5;
-    margin-top:4px;
-    font-size:10px;
+.logo-text h2{
+    font-size:19px;
     letter-spacing:1px;
+}
+
+.logo-text p{
+    font-size:9px;
+    color:#91a39a;
+    letter-spacing:2px;
 }
 
 nav{
@@ -162,14 +100,13 @@ nav{
 }
 
 .nav-btn{
-    border:0;
-    color:#dce5e1;
     background:transparent;
-    padding:10px 15px;
+    border:0;
+    color:#cbd5d0;
+    padding:10px 14px;
     border-radius:10px;
-    cursor:pointer;
     font-weight:700;
-    transition:.25s;
+    cursor:pointer;
 }
 
 .nav-btn:hover{
@@ -177,18 +114,18 @@ nav{
     color:white;
 }
 
-@media(max-width:700px){
+@media(max-width:650px){
     header{
-        padding:12px 4%;
+        padding:0 4%;
     }
 
     .logo-text{
         display:none;
     }
 
-    nav .nav-btn{
-        padding:8px;
+    .nav-btn{
         font-size:12px;
+        padding:8px;
     }
 }
 
@@ -197,45 +134,43 @@ nav{
 ========================= */
 
 .hero{
-    min-height:76vh;
+    min-height:620px;
+    padding:80px 7%;
     display:grid;
     place-items:center;
-    padding:80px 6% 55px;
-    position:relative;
-    overflow:hidden;
 }
 
-.hero-inner{
+.hero-content{
     width:min(1100px,100%);
     display:grid;
     grid-template-columns:1.15fr .85fr;
+    gap:60px;
     align-items:center;
-    gap:50px;
 }
 
 @media(max-width:850px){
-    .hero-inner{
+    .hero-content{
         grid-template-columns:1fr;
         text-align:center;
     }
 }
 
-.eyebrow{
+.badge{
     display:inline-flex;
-    align-items:center;
     gap:8px;
+    align-items:center;
     padding:8px 13px;
-    border:1px solid rgba(255,255,255,.13);
-    background:rgba(255,255,255,.05);
-    border-radius:999px;
-    color:#cdd8d2;
-    font-size:12px;
+    border-radius:50px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+    color:#d7e0dc;
+    font-size:11px;
     font-weight:800;
     letter-spacing:1px;
     margin-bottom:20px;
 }
 
-.dot{
+.badge span{
     width:8px;
     height:8px;
     border-radius:50%;
@@ -245,22 +180,22 @@ nav{
 
 .hero h1{
     font-family:"Playfair Display",serif;
-    font-size:clamp(45px,7vw,84px);
+    font-size:clamp(48px,7vw,82px);
     line-height:.95;
-    margin-bottom:25px;
     letter-spacing:-3px;
+    margin-bottom:25px;
 }
 
 .hero h1 span{
     color:var(--amarelo);
 }
 
-.hero p{
-    max-width:650px;
-    color:#b9c5bf;
-    font-size:18px;
+.hero-description{
+    color:#aebbb4;
+    font-size:17px;
     line-height:1.7;
-    margin-bottom:32px;
+    max-width:650px;
+    margin-bottom:30px;
 }
 
 .hero-buttons{
@@ -269,174 +204,170 @@ nav{
     flex-wrap:wrap;
 }
 
-.btn{
+.main-btn{
     border:0;
-    cursor:pointer;
     padding:15px 22px;
     border-radius:13px;
     font-size:14px;
     font-weight:800;
+    cursor:pointer;
     transition:.25s;
 }
 
-.btn:hover{
+.main-btn:hover{
     transform:translateY(-3px);
 }
 
-.btn-primary{
+.primary{
     background:var(--amarelo);
     color:#17140a;
-    box-shadow:0 10px 30px rgba(255,212,71,.2);
+    box-shadow:0 12px 30px rgba(255,212,71,.18);
 }
 
-.btn-secondary{
-    background:rgba(255,255,255,.07);
+.secondary{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
     color:white;
-    border:1px solid rgba(255,255,255,.12);
 }
 
 /* =========================
-   MAPA ILUSTRATIVO
+   CARTA HERO
 ========================= */
 
-.parana-art{
+.hero-card-area{
     min-height:400px;
     display:grid;
     place-items:center;
     position:relative;
 }
 
-.map{
-    width:min(340px,80vw);
-    height:380px;
+.big-card{
+    width:270px;
+    height:360px;
+    border-radius:27px;
+    padding:24px;
     position:relative;
-    transform:rotate(-5deg);
-}
-
-.map-shape{
-    position:absolute;
-    width:230px;
-    height:330px;
-    left:55px;
-    top:20px;
-    background:linear-gradient(145deg,#119c64,#05623d);
-    clip-path:polygon(
-        20% 0%,45% 5%,61% 2%,80% 13%,95% 12%,
-        100% 28%,90% 40%,95% 54%,82% 63%,89% 78%,
-        74% 86%,70% 100%,53% 93%,39% 98%,30% 88%,
-        15% 91%,18% 75%,5% 65%,12% 50%,2% 37%,
-        12% 26%,5% 14%
-    );
-    box-shadow:0 25px 45px rgba(0,0,0,.4);
-}
-
-.map-inner{
-    position:absolute;
-    inset:35px;
+    overflow:hidden;
+    transform:rotate(5deg);
     background:
-        radial-gradient(circle at 30% 35%,rgba(255,255,255,.13),transparent 8%),
-        radial-gradient(circle at 65% 55%,rgba(255,255,255,.1),transparent 7%),
-        linear-gradient(135deg,rgba(255,255,255,.08),transparent);
-    clip-path:inherit;
+        radial-gradient(circle at 20% 15%,rgba(255,255,255,.16),transparent 20%),
+        linear-gradient(145deg,#0c6949,#052d21);
+    border:2px solid rgba(255,255,255,.12);
+    box-shadow:0 35px 70px rgba(0,0,0,.45);
 }
 
-.city{
+.big-card::before{
+    content:"PR";
     position:absolute;
-    width:13px;
-    height:13px;
-    border:3px solid white;
-    border-radius:50%;
-    background:var(--amarelo);
-    box-shadow:0 0 20px var(--amarelo);
-    z-index:3;
-}
-
-.city::after{
-    content:attr(data-city);
-    position:absolute;
-    left:18px;
-    top:-6px;
-    white-space:nowrap;
-    font-size:10px;
+    bottom:-35px;
+    right:-20px;
+    font-size:150px;
     font-weight:800;
-    color:white;
+    color:rgba(255,255,255,.035);
 }
 
-.city.curitiba{left:52%;top:53%}
-.city.paranagua{left:70%;top:59%}
-.city.londrina{left:45%;top:20%}
-.city.cascavel{left:25%;top:58%}
+.card-decoration{
+    display:flex;
+    justify-content:space-between;
+    color:var(--amarelo);
+    font-size:13px;
+    font-weight:800;
+}
 
-.floating-card{
+.big-card-icon{
+    font-size:70px;
+    text-align:center;
+    margin-top:45px;
+}
+
+.big-card h3{
+    font-family:"Playfair Display",serif;
+    text-align:center;
+    font-size:27px;
+    margin-top:25px;
+}
+
+.big-card p{
+    text-align:center;
+    color:#91aaa0;
+    font-size:12px;
+    margin-top:10px;
+}
+
+.floating{
     position:absolute;
-    background:rgba(20,27,24,.94);
-    border:1px solid rgba(255,255,255,.12);
-    padding:15px;
-    border-radius:17px;
-    box-shadow:var(--sombra);
-    backdrop-filter:blur(10px);
+    background:rgba(18,29,24,.95);
+    border:1px solid rgba(255,255,255,.1);
+    padding:14px 17px;
+    border-radius:15px;
+    box-shadow:0 20px 40px rgba(0,0,0,.3);
     animation:float 4s ease-in-out infinite;
 }
 
-.floating-card strong{
+.floating strong{
     display:block;
-    font-size:18px;
     color:var(--amarelo);
+    font-size:18px;
 }
 
-.floating-card small{
-    color:#9eaaa4;
+.floating small{
+    color:#9ba9a2;
 }
 
-.fc1{
+.float1{
+    top:50px;
     left:0;
-    top:80px;
 }
 
-.fc2{
-    right:-10px;
-    bottom:55px;
-    animation-delay:1.3s;
+.float2{
+    right:-5px;
+    bottom:50px;
+    animation-delay:1.2s;
 }
 
 @keyframes float{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-12px)}
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
 }
 
 /* =========================
-   SEÇÃO DO JOGO
+   GAME
 ========================= */
 
 .game-section{
-    padding:65px 5%;
+    padding:70px 5%;
 }
 
-.game-wrap{
-    width:min(1200px,100%);
+.game-container{
+    width:min(1100px,100%);
     margin:auto;
 }
 
 .section-title{
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:35px;
 }
 
-.section-title span{
+.section-title small{
     color:var(--amarelo);
+    font-size:11px;
     font-weight:800;
-    font-size:12px;
     letter-spacing:2px;
 }
 
 .section-title h2{
     font-family:"Playfair Display",serif;
-    font-size:42px;
-    margin-top:8px;
+    font-size:40px;
+    margin-top:7px;
 }
 
 .section-title p{
-    color:#9faea6;
+    color:#8fa099;
     margin-top:8px;
 }
 
@@ -452,21 +383,22 @@ nav{
 }
 
 .hud-box{
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
-    padding:13px 15px;
+    padding:15px;
     border-radius:15px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.08);
 }
 
 .hud-box span{
-    color:#9eaaa4;
-    font-size:11px;
     display:block;
-    margin-bottom:4px;
+    color:#8f9d96;
+    font-size:10px;
+    margin-bottom:5px;
+    font-weight:700;
 }
 
 .hud-box strong{
-    font-size:21px;
+    font-size:22px;
 }
 
 @media(max-width:700px){
@@ -479,31 +411,28 @@ nav{
    PROGRESS
 ========================= */
 
-.progress-area{
-    margin-bottom:20px;
-}
-
 .progress-info{
     display:flex;
     justify-content:space-between;
-    color:#9eaaa4;
-    font-size:12px;
+    color:#93a29a;
+    font-size:11px;
     margin-bottom:7px;
 }
 
 .progress{
     width:100%;
     height:8px;
-    background:#1c2621;
-    border-radius:999px;
+    border-radius:20px;
+    background:#1b2822;
     overflow:hidden;
+    margin-bottom:25px;
 }
 
 .progress-fill{
-    height:100%;
     width:0%;
-    background:linear-gradient(90deg,var(--verde2),var(--amarelo));
-    border-radius:inherit;
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(90deg,var(--verde-claro),var(--amarelo));
     transition:.5s;
 }
 
@@ -515,205 +444,276 @@ nav{
     display:flex;
     gap:8px;
     flex-wrap:wrap;
-    margin-bottom:20px;
+    justify-content:center;
+    margin-bottom:30px;
 }
 
 .category{
-    border:1px solid rgba(255,255,255,.09);
-    color:#bbc6c0;
+    padding:9px 13px;
+    border-radius:50px;
+    border:1px solid rgba(255,255,255,.1);
     background:rgba(255,255,255,.04);
-    padding:8px 13px;
-    border-radius:999px;
-    font-size:12px;
-    font-weight:800;
+    color:#b7c2bc;
     cursor:pointer;
+    font-weight:700;
+    font-size:11px;
     transition:.2s;
 }
 
-.category.active,
-.category:hover{
-    background:var(--verde);
+.category:hover,
+.category.active{
     color:white;
-    border-color:var(--verde2);
+    background:var(--verde);
+    border-color:var(--verde-claro);
 }
 
 /* =========================
-   CARTAS
+   GAME CARD
 ========================= */
 
-.cards-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-@media(max-width:950px){
-    .cards-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-}
-
-@media(max-width:650px){
-    .cards-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-.card{
-    height:245px;
-    perspective:1000px;
-    cursor:pointer;
-}
-
-.card-inner{
-    width:100%;
-    height:100%;
+.question-card{
+    width:min(760px,100%);
+    min-height:480px;
+    margin:0 auto;
+    border-radius:30px;
+    background:
+        radial-gradient(circle at 90% 5%,rgba(255,212,71,.08),transparent 20%),
+        linear-gradient(145deg,#12241c,#0c1712);
+    border:1px solid rgba(255,255,255,.1);
+    box-shadow:0 35px 80px rgba(0,0,0,.3);
+    padding:35px;
     position:relative;
-    transform-style:preserve-3d;
-    transition:transform .65s cubic-bezier(.2,.8,.2,1);
-}
-
-.card.flipped .card-inner{
-    transform:rotateY(180deg);
-}
-
-.card-face{
-    position:absolute;
-    inset:0;
-    backface-visibility:hidden;
-    border-radius:21px;
     overflow:hidden;
 }
 
-.card-front{
-    background:
-        radial-gradient(circle at 20% 20%,rgba(255,255,255,.12),transparent 15%),
-        linear-gradient(145deg,#123f31,#071d15);
-    border:1px solid rgba(255,255,255,.1);
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    padding:18px;
-    box-shadow:0 15px 30px rgba(0,0,0,.25);
-}
-
-.card-front::before{
-    content:"PR";
+.question-card::before{
+    content:"";
     position:absolute;
-    right:-18px;
-    bottom:-38px;
-    font-family:"Bebas Neue";
-    font-size:130px;
-    color:rgba(255,255,255,.035);
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:rgba(22,166,109,.08);
+    right:-100px;
+    top:-100px;
 }
 
-.card-symbol{
-    width:45px;
-    height:45px;
-    border-radius:13px;
-    display:grid;
-    place-items:center;
-    background:rgba(255,255,255,.08);
-    font-size:23px;
-}
-
-.card-front h3{
-    font-family:"Playfair Display";
-    font-size:23px;
-    position:relative;
-}
-
-.card-front small{
-    color:#91a39a;
-    position:relative;
-}
-
-.card-back{
-    transform:rotateY(180deg);
-    background:#f7f3e8;
-    color:#17201c;
-    padding:18px;
+.question-top{
     display:flex;
-    flex-direction:column;
-    border:3px solid var(--amarelo);
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+    z-index:2;
 }
 
-.card-back .tag{
-    align-self:flex-start;
-    font-size:9px;
-    font-weight:900;
+.category-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    background:rgba(255,255,255,.07);
+    padding:8px 12px;
+    border-radius:50px;
+    font-size:11px;
+    font-weight:800;
+    color:#d1dbd6;
+}
+
+.question-number{
+    color:#718078;
+    font-size:12px;
+    font-weight:800;
+}
+
+.question-icon{
+    text-align:center;
+    font-size:60px;
+    margin:35px 0 15px;
+    position:relative;
+    z-index:2;
+}
+
+.question-card h3{
+    text-align:center;
+    font-family:"Playfair Display",serif;
+    font-size:clamp(25px,4vw,36px);
+    line-height:1.2;
+    max-width:650px;
+    margin:0 auto 30px;
+    position:relative;
+    z-index:2;
+}
+
+/* =========================
+   INPUT
+========================= */
+
+.answer-area{
+    position:relative;
+    z-index:2;
+}
+
+.answer-label{
+    display:block;
+    color:#9caaa3;
+    font-size:11px;
+    font-weight:800;
+    margin-bottom:8px;
     text-transform:uppercase;
     letter-spacing:1px;
-    padding:6px 9px;
-    border-radius:999px;
-    background:#17201c;
+}
+
+.answer-input{
+    width:100%;
+    height:60px;
+    border-radius:15px;
+    border:2px solid rgba(255,255,255,.1);
+    outline:none;
+    background:#09120f;
     color:white;
-    margin-bottom:9px;
+    padding:0 18px;
+    font-family:"DM Sans",sans-serif;
+    font-size:17px;
+    transition:.25s;
 }
 
-.card-back h3{
-    font-family:"Playfair Display";
-    font-size:19px;
-    line-height:1.05;
-    margin-bottom:8px;
+.answer-input:focus{
+    border-color:var(--verde-claro);
+    box-shadow:0 0 0 4px rgba(22,166,109,.1);
 }
 
-.card-back p{
-    font-size:12px;
-    line-height:1.45;
-    color:#4b5550;
+.answer-input:disabled{
+    opacity:.65;
 }
 
-.card-back .answer{
-    margin-top:auto;
-    padding-top:10px;
-    font-size:10px;
-    color:#66726b;
-    font-weight:700;
+.submit-btn{
+    width:100%;
+    height:58px;
+    margin-top:12px;
+    border:0;
+    border-radius:15px;
+    background:var(--amarelo);
+    color:#17140a;
+    font-size:15px;
+    font-weight:900;
+    cursor:pointer;
+    transition:.25s;
 }
 
-.card.correct{
-    animation:correct .5s;
+.submit-btn:hover{
+    transform:translateY(-2px);
+    background:#ffe071;
 }
 
-.card.wrong{
-    animation:wrong .45s;
-}
-
-@keyframes correct{
-    0%{transform:scale(1)}
-    50%{transform:scale(1.05)}
-    100%{transform:scale(1)}
-}
-
-@keyframes wrong{
-    0%,100%{transform:translateX(0)}
-    25%{transform:translateX(-7px)}
-    75%{transform:translateX(7px)}
+.submit-btn:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+    transform:none;
 }
 
 /* =========================
-   BOTÃO NOVA PARTIDA
+   RESULTADO
 ========================= */
 
-.controls{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    margin-top:25px;
-    flex-wrap:wrap;
+.result{
+    margin-top:18px;
+    border-radius:18px;
+    padding:18px;
+    display:none;
+    animation:appear .4s ease;
+}
+
+.result.show{
+    display:block;
+}
+
+.result.correct{
+    background:rgba(22,166,109,.12);
+    border:1px solid rgba(22,166,109,.4);
+}
+
+.result.wrong{
+    background:rgba(230,76,76,.1);
+    border:1px solid rgba(230,76,76,.35);
+}
+
+.result-title{
+    font-size:20px;
+    font-weight:900;
+    margin-bottom:6px;
+}
+
+.result.correct .result-title{
+    color:#4ee19b;
+}
+
+.result.wrong .result-title{
+    color:#ff7777;
+}
+
+.result-answer{
+    color:white;
+    font-weight:800;
+    margin-bottom:7px;
+}
+
+.result-explanation{
+    color:#a9b6af;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.next-btn{
+    width:100%;
+    height:50px;
+    border:0;
+    border-radius:13px;
+    margin-top:13px;
+    background:var(--verde);
+    color:white;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.next-btn:hover{
+    background:var(--verde-claro);
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 /* =========================
-   APRENDER
+   DICA
 ========================= */
 
-.learn{
+.hint{
+    margin-top:20px;
+    text-align:center;
+    color:#68776f;
+    font-size:11px;
+}
+
+.hint strong{
+    color:#a7b4ad;
+}
+
+/* =========================
+   TEMAS
+========================= */
+
+.themes{
     padding:80px 5%;
-    background:rgba(0,0,0,.15);
+    background:rgba(0,0,0,.13);
 }
 
-.learn-grid{
+.theme-grid{
     width:min(1100px,100%);
     margin:auto;
     display:grid;
@@ -721,151 +721,122 @@ nav{
     gap:18px;
 }
 
-@media(max-width:850px){
-    .learn-grid{
+@media(max-width:800px){
+    .theme-grid{
         grid-template-columns:repeat(2,1fr);
     }
 }
 
-@media(max-width:600px){
-    .learn-grid{
+@media(max-width:550px){
+    .theme-grid{
         grid-template-columns:1fr;
     }
 }
 
-.topic{
+.theme{
     padding:25px;
-    min-height:200px;
     border-radius:22px;
-    background:rgba(255,255,255,.045);
+    background:rgba(255,255,255,.04);
     border:1px solid rgba(255,255,255,.08);
     transition:.3s;
-    position:relative;
-    overflow:hidden;
 }
 
-.topic:hover{
+.theme:hover{
     transform:translateY(-5px);
-    background:rgba(255,255,255,.07);
+    background:rgba(255,255,255,.065);
 }
 
-.topic-icon{
+.theme-icon{
     font-size:35px;
-    margin-bottom:18px;
+    margin-bottom:15px;
 }
 
-.topic h3{
-    font-family:"Playfair Display";
-    font-size:23px;
-    margin-bottom:9px;
+.theme h3{
+    font-family:"Playfair Display",serif;
+    font-size:22px;
+    margin-bottom:8px;
 }
 
-.topic p{
-    color:#a9b6af;
-    font-size:14px;
+.theme p{
+    color:#9ca9a3;
     line-height:1.6;
+    font-size:13px;
 }
 
 /* =========================
-   MODO APRENDER
+   MODAL
 ========================= */
 
-.learning-modal,
-.end-modal{
+.modal-bg{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.75);
+    background:rgba(0,0,0,.78);
     backdrop-filter:blur(10px);
-    z-index:100;
+    z-index:200;
     display:none;
     place-items:center;
     padding:20px;
 }
 
-.learning-modal.show,
-.end-modal.show{
+.modal-bg.show{
     display:grid;
 }
 
 .modal{
-    width:min(700px,100%);
+    width:min(650px,100%);
     max-height:90vh;
     overflow:auto;
-    background:#111916;
-    border:1px solid rgba(255,255,255,.12);
+    background:#101b16;
+    border:1px solid rgba(255,255,255,.1);
     border-radius:25px;
-    padding:28px;
-    box-shadow:0 30px 80px rgba(0,0,0,.5);
+    padding:30px;
+    box-shadow:0 35px 90px rgba(0,0,0,.5);
 }
 
 .modal h2{
-    font-family:"Playfair Display";
-    font-size:35px;
+    font-family:"Playfair Display",serif;
+    font-size:34px;
     margin-bottom:10px;
 }
 
 .modal p{
-    color:#aebbb4;
-    line-height:1.7;
+    color:#a8b5ae;
+    line-height:1.6;
     margin-bottom:18px;
 }
 
-.learn-list{
+.stats{
     display:grid;
+    grid-template-columns:repeat(3,1fr);
     gap:10px;
+    margin:20px 0;
 }
 
-.learn-item{
-    padding:15px;
-    border-radius:14px;
+.stat{
+    padding:17px;
+    border-radius:15px;
     background:rgba(255,255,255,.05);
-    border-left:4px solid var(--amarelo);
-}
-
-.learn-item strong{
-    display:block;
-    margin-bottom:4px;
-}
-
-.learn-item span{
-    color:#9faea5;
-    font-size:13px;
-    line-height:1.5;
-}
-
-/* =========================
-   MODAL FINAL
-========================= */
-
-.end-content{
     text-align:center;
 }
 
-.trophy{
-    font-size:75px;
-    animation:trophy 1.5s infinite ease-in-out;
-}
-
-@keyframes trophy{
-    0%,100%{transform:rotate(-5deg) scale(1)}
-    50%{transform:rotate(5deg) scale(1.1)}
-}
-
-.final-score{
-    font-family:"Bebas Neue";
-    font-size:70px;
+.stat strong{
+    display:block;
+    font-size:26px;
     color:var(--amarelo);
-    letter-spacing:2px;
 }
 
-.rank{
-    display:inline-block;
-    margin:10px 0 20px;
-    padding:9px 16px;
-    border-radius:999px;
-    background:rgba(255,212,71,.1);
-    color:var(--amarelo);
-    font-weight:800;
+.stat span{
+    font-size:10px;
+    color:#8c9a93;
+}
+
+.modal-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.modal-buttons button{
+    flex:1;
 }
 
 /* =========================
@@ -874,22 +845,41 @@ nav{
 
 .toast{
     position:fixed;
-    bottom:25px;
     left:50%;
-    transform:translate(-50%,120px);
-    background:#f7f3e8;
-    color:#111916;
-    padding:13px 19px;
-    border-radius:999px;
-    font-weight:800;
+    bottom:25px;
+    transform:translate(-50%,130px);
+    z-index:500;
+    background:var(--creme);
+    color:#111;
+    padding:13px 20px;
+    border-radius:50px;
+    font-weight:900;
     font-size:13px;
-    z-index:200;
-    box-shadow:var(--sombra);
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
     transition:.35s;
 }
 
 .toast.show{
     transform:translate(-50%,0);
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti{
+    position:fixed;
+    top:-20px;
+    z-index:600;
+    pointer-events:none;
+    animation:fall 2.8s linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
 }
 
 /* =========================
@@ -899,122 +889,124 @@ nav{
 footer{
     padding:40px 5%;
     text-align:center;
-    color:#68766f;
+    color:#65746c;
+    font-size:11px;
     border-top:1px solid rgba(255,255,255,.06);
-    font-size:12px;
 }
 
 footer strong{
-    color:#9eaaa4;
-}
-
-/* =========================
-   CONFETES
-========================= */
-
-.confetti{
-    position:fixed;
-    width:8px;
-    height:14px;
-    top:-20px;
-    z-index:300;
-    animation:fall 2.7s linear forwards;
-}
-
-@keyframes fall{
-    to{
-        transform:translateY(110vh) rotate(720deg);
-        opacity:0;
-    }
+    color:#9ca9a2;
 }
 </style>
 </head>
 
 <body>
 
-<div class="blob one"></div>
-<div class="blob two"></div>
-<div class="blob three"></div>
-
 <header>
 
-    <div class="logo" onclick="goTop()">
-        <div class="logo-mark">🗺️</div>
-        <div class="logo-text">
-            <strong>MEMÓRIA PR</strong>
-            <small>CARTAS QUE CONTAM HISTÓRIAS</small>
+    <div class="logo" onclick="topo()">
+
+        <div class="logo-icon">
+            🗺️
         </div>
+
+        <div class="logo-text">
+            <h2>MEMÓRIA PR</h2>
+            <p>CARTAS QUE CONTAM HISTÓRIAS</p>
+        </div>
+
     </div>
 
     <nav>
-        <button class="nav-btn" onclick="scrollToGame()">🎴 Jogar</button>
-        <button class="nav-btn" onclick="openLearn()">📚 Aprender</button>
+
+        <button class="nav-btn" onclick="irJogo()">
+            🎴 Jogar
+        </button>
+
+        <button class="nav-btn" onclick="irTemas()">
+            📚 Temas
+        </button>
+
     </nav>
 
 </header>
 
+
 <main>
 
-<!-- ================= HERO ================= -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
-    <div class="hero-inner">
+    <div class="hero-content">
 
         <div>
 
-            <div class="eyebrow">
-                <span class="dot"></span>
-                JOGO EDUCATIVO • PARANÁ
+            <div class="badge">
+                <span></span>
+                JOGO EDUCATIVO SOBRE O PARANÁ
             </div>
 
             <h1>
-                O Paraná<br>
-                <span>em cartas.</span>
+                Conheça o Paraná.<br>
+                <span>Desafie sua memória.</span>
             </h1>
 
-            <p>
-                Descubra histórias sobre trabalho, cultura, economia,
-                presença negra, urbanização, arte e memória do Paraná.
-                Vire as cartas, teste seus conhecimentos e construa sua própria
-                coleção de histórias.
+            <p class="hero-description">
+                Responda perguntas sobre trabalho, cultura, economia,
+                presença negra no Paraná, urbanização, arte e memória.
+                Aqui você precisa pensar e escrever a resposta.
             </p>
 
             <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="startGame()">
-                    🎴 COMEÇAR A JOGAR
+
+                <button class="main-btn primary" onclick="novoJogo()">
+                    🎴 COMEÇAR O JOGO
                 </button>
 
-                <button class="btn btn-secondary" onclick="openLearn()">
-                    📚 COMO FUNCIONA
+                <button class="main-btn secondary" onclick="irTemas()">
+                    📚 CONHECER OS TEMAS
                 </button>
+
             </div>
 
         </div>
 
-        <div class="parana-art">
 
-            <div class="floating-card fc1">
-                <strong>+7</strong>
-                <small>temas históricos</small>
+        <div class="hero-card-area">
+
+            <div class="floating float1">
+                <strong>✍️ ESCREVA</strong>
+                <small>suas respostas</small>
             </div>
 
-            <div class="map">
+            <div class="big-card">
 
-                <div class="map-shape">
-                    <div class="map-inner"></div>
+                <div class="card-decoration">
+                    <span>MEMÓRIA PR</span>
+                    <span>01</span>
                 </div>
 
-                <div class="city curitiba" data-city="Curitiba"></div>
-                <div class="city paranagua" data-city="Paranaguá"></div>
-                <div class="city londrina" data-city="Londrina"></div>
-                <div class="city cascavel" data-city="Cascavel"></div>
+                <div class="big-card-icon">
+                    🃏
+                </div>
+
+                <h3>
+                    Uma pergunta.
+                    Uma história.
+                </h3>
+
+                <p>
+                    Pense, escreva e descubra a resposta.
+                </p>
 
             </div>
 
-            <div class="floating-card fc2">
-                <strong>PR</strong>
-                <small>histórias que ficam</small>
+            <div class="floating float2">
+                <strong>🏆 PONTOS</strong>
+                <small>acerte para ganhar</small>
             </div>
 
         </div>
@@ -1023,109 +1015,220 @@ footer strong{
 
 </section>
 
-<!-- ================= JOGO ================= -->
 
-<section class="game-section" id="game">
+<!-- =========================
+     JOGO
+========================= -->
 
-    <div class="game-wrap">
+<section class="game-section" id="jogo">
+
+    <div class="game-container">
 
         <div class="section-title">
 
-            <span>DESAFIO PRINCIPAL</span>
+            <small>DESAFIO</small>
 
-            <h2>Vire as cartas. Descubra o Paraná.</h2>
+            <h2>Responda a pergunta</h2>
 
             <p>
-                Clique em uma carta para revelar uma pergunta.
+                Leia com atenção, escreva sua resposta e clique em responder.
             </p>
 
         </div>
 
+
         <div class="hud">
 
             <div class="hud-box">
-                <span>PONTOS</span>
+                <span>⭐ PONTOS</span>
                 <strong id="score">0</strong>
             </div>
 
             <div class="hud-box">
-                <span>ACERTOS</span>
-                <strong id="hits">0</strong>
+                <span>✅ ACERTOS</span>
+                <strong id="acertos">0</strong>
             </div>
 
             <div class="hud-box">
-                <span>ERROS</span>
-                <strong id="misses">0</strong>
+                <span>❌ ERROS</span>
+                <strong id="erros">0</strong>
             </div>
 
             <div class="hud-box">
-                <span>COMBO</span>
+                <span>🔥 COMBO</span>
                 <strong id="combo">x0</strong>
             </div>
 
             <div class="hud-box">
-                <span>TEMPO</span>
-                <strong id="timer">90s</strong>
+                <span>⏱️ TEMPO</span>
+                <strong id="tempo">120s</strong>
             </div>
 
         </div>
 
-        <div class="progress-area">
 
-            <div class="progress-info">
-                <span>PROGRESSO DA MISSÃO</span>
-                <span id="progressText">0 / 12</span>
-            </div>
+        <div class="progress-info">
 
-            <div class="progress">
-                <div class="progress-fill" id="progressFill"></div>
+            <span>
+                PROGRESSO
+            </span>
+
+            <span id="numeroPergunta">
+                1 / 15
+            </span>
+
+        </div>
+
+        <div class="progress">
+
+            <div
+                class="progress-fill"
+                id="progressFill">
             </div>
 
         </div>
+
 
         <div class="categories">
 
-            <button class="category active" onclick="filterCategory('todos',this)">
+            <button
+                class="category active"
+                onclick="selecionarCategoria('todos',this)">
                 ✨ Todos
             </button>
 
-            <button class="category" onclick="filterCategory('trabalho',this)">
+            <button
+                class="category"
+                onclick="selecionarCategoria('trabalho',this)">
                 💼 Trabalho
             </button>
 
-            <button class="category" onclick="filterCategory('economia',this)">
+            <button
+                class="category"
+                onclick="selecionarCategoria('economia',this)">
                 💰 Economia
             </button>
 
-            <button class="category" onclick="filterCategory('negra',this)">
+            <button
+                class="category"
+                onclick="selecionarCategoria('negra',this)">
                 🖤 Presença negra
             </button>
 
-            <button class="category" onclick="filterCategory('urbanizacao',this)">
+            <button
+                class="category"
+                onclick="selecionarCategoria('urbanizacao',this)">
                 🏙️ Urbanização
             </button>
 
-            <button class="category" onclick="filterCategory('arte',this)">
+            <button
+                class="category"
+                onclick="selecionarCategoria('arte',this)">
                 🎨 Arte
             </button>
 
-            <button class="category" onclick="filterCategory('memoria',this)">
+            <button
+                class="category"
+                onclick="selecionarCategoria('memoria',this)">
                 🧠 Memória
             </button>
 
         </div>
 
-        <div class="cards-grid" id="cardsGrid"></div>
 
-        <div class="controls">
+        <!-- CARTA DA PERGUNTA -->
 
-            <button class="btn btn-primary" onclick="startGame()">
-                🔄 NOVA PARTIDA
-            </button>
+        <div class="question-card">
 
-            <button class="btn btn-secondary" onclick="openLearn()">
-                📚 REVISAR CONTEÚDO
-            </button>
+            <div class="question-top">
+
+                <div
+                    class="category-tag"
+                    id="categoriaAtual">
+                    ✨ Paraná
+                </div>
+
+                <div
+                    class="question-number"
+                    id="questaoAtual">
+                    PERGUNTA 01
+                </div>
+
+            </div>
+
+
+            <div
+                class="question-icon"
+                id="questionIcon">
+                🗺️
+            </div>
+
+
+            <h3 id="questionText">
+                Clique em "Começar o jogo" para iniciar!
+            </h3>
+
+
+            <div class="answer-area">
+
+                <label class="answer-label">
+                    ✍️ DIGITE SUA RESPOSTA
+                </label>
+
+                <input
+                    type="text"
+                    class="answer-input"
+                    id="answerInput"
+                    placeholder="Escreva sua resposta aqui..."
+                    autocomplete="off"
+                    disabled
+                >
+
+                <button
+                    class="submit-btn"
+                    id="submitBtn"
+                    onclick="responder()"
+                    disabled>
+                    RESPONDER →
+                </button>
+
+
+                <!-- RESULTADO ESCONDIDO -->
+
+                <div
+                    class="result"
+                    id="result">
+
+                    <div
+                        class="result-title"
+                        id="resultTitle">
+                    </div>
+
+                    <div
+                        class="result-answer"
+                        id="resultAnswer">
+                    </div>
+
+                    <div
+                        class="result-explanation"
+                        id="resultExplanation">
+                    </div>
+
+                    <button
+                        class="next-btn"
+                        onclick="proximaPergunta()">
+                        PRÓXIMA PERGUNTA →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="hint">
+                💡 <strong>Dica:</strong>
+                as respostas são simples e estão relacionadas aos temas estudados.
+            </div>
 
         </div>
 
@@ -1133,81 +1236,133 @@ footer strong{
 
 </section>
 
-<!-- ================= APRENDIZAGEM ================= -->
 
-<section class="learn" id="learn">
+<!-- =========================
+     TEMAS
+========================= -->
+
+<section class="themes" id="temas">
 
     <div class="section-title">
 
-        <span>ANTES DE JOGAR</span>
+        <small>O QUE VOCÊ VAI APRENDER</small>
 
-        <h2>Conheça os temas</h2>
+        <h2>Temas do jogo</h2>
 
         <p>
-            O jogo transforma conteúdos históricos em pequenas missões.
+            Cada pergunta apresenta uma pequena parte da história do Paraná.
         </p>
 
     </div>
 
-    <div class="learn-grid">
 
-        <article class="topic">
-            <div class="topic-icon">💼</div>
-            <h3>Trabalho</h3>
+    <div class="theme-grid">
+
+        <article class="theme">
+
+            <div class="theme-icon">
+                💼
+            </div>
+
+            <h3>
+                Trabalho
+            </h3>
+
             <p>
-                A história do trabalho no Paraná envolve agricultura,
-                indústria, comércio, serviços e diferentes formas de
-                organização dos trabalhadores.
+                Atividades profissionais, trabalhadores e formas
+                de trabalho que participaram da formação da sociedade.
             </p>
+
         </article>
 
-        <article class="topic">
-            <div class="topic-icon">💰</div>
-            <h3>Economia</h3>
+
+        <article class="theme">
+
+            <div class="theme-icon">
+                💰
+            </div>
+
+            <h3>
+                Economia
+            </h3>
+
             <p>
-                A economia paranaense passou por diferentes fases,
-                com destaque para agricultura, café, erva-mate,
-                madeira, indústria e serviços.
+                Agricultura, café, erva-mate, indústria, comércio
+                e outras atividades econômicas.
             </p>
+
         </article>
 
-        <article class="topic">
-            <div class="topic-icon">🖤</div>
-            <h3>Presença negra</h3>
+
+        <article class="theme">
+
+            <div class="theme-icon">
+                🖤
+            </div>
+
+            <h3>
+                Presença negra
+            </h3>
+
             <p>
-                A população negra faz parte da formação histórica do
-                Paraná e contribuiu para o trabalho, cultura,
-                religiosidade, arte e identidade regional.
+                A participação da população negra na história,
+                cultura, trabalho e formação da sociedade paranaense.
             </p>
+
         </article>
 
-        <article class="topic">
-            <div class="topic-icon">🏙️</div>
-            <h3>Urbanização</h3>
+
+        <article class="theme">
+
+            <div class="theme-icon">
+                🏙️
+            </div>
+
+            <h3>
+                Urbanização
+            </h3>
+
             <p>
-                O crescimento das cidades transformou formas de morar,
-                trabalhar, circular e ocupar o território paranaense.
+                Crescimento das cidades, mudanças no espaço urbano,
+                transporte e formas de viver.
             </p>
+
         </article>
 
-        <article class="topic">
-            <div class="topic-icon">🎨</div>
-            <h3>Arte</h3>
+
+        <article class="theme">
+
+            <div class="theme-icon">
+                🎨
+            </div>
+
+            <h3>
+                Arte
+            </h3>
+
             <p>
-                A arte registra identidades, costumes e experiências,
-                aparecendo na música, literatura, arquitetura,
-                artes visuais e manifestações populares.
+                Música, teatro, literatura, artes visuais e outras
+                formas de expressão cultural.
             </p>
+
         </article>
 
-        <article class="topic">
-            <div class="topic-icon">🧠</div>
-            <h3>Memória</h3>
+
+        <article class="theme">
+
+            <div class="theme-icon">
+                🧠
+            </div>
+
+            <h3>
+                Memória
+            </h3>
+
             <p>
-                Memória é construída por pessoas, comunidades,
-                documentos, objetos, lugares e patrimônios que ajudam
-                a compreender o passado.
+                Fotografias, lugares, documentos, patrimônios e
+                lembranças que ajudam a preservar histórias.
             </p>
+
         </article>
 
     </div>
@@ -1216,124 +1371,83 @@ footer strong{
 
 </main>
 
+
 <footer>
-    <strong>MEMÓRIA PR</strong> • Cartas que Contam Histórias
+
+    <strong>MEMÓRIA PR</strong>
+    • Cartas que Contam Histórias
+
     <br><br>
-    Projeto educativo sobre história, cultura e sociedade do Paraná.
+
+    Projeto educativo sobre trabalho, cultura, economia,
+    presença negra, urbanização, arte e memória do Paraná.
+
 </footer>
 
 
-<!-- ================= MODAL APRENDER ================= -->
+<!-- =========================
+     MODAL FINAL
+========================= -->
 
-<div class="learning-modal" id="learningModal">
+<div
+    class="modal-bg"
+    id="finalModal">
 
     <div class="modal">
 
-        <h2>📚 Manual do explorador</h2>
+        <h2>
+            🏆 Você terminou!
+        </h2>
 
-        <p>
-            Aqui você pode revisar os assuntos antes de enfrentar as cartas.
-            Porque estudar antes da prova ainda é estranhamente permitido pela
-            sociedade. Uma vitória rara.
+        <p id="finalMessage">
+            Parabéns por completar o desafio.
         </p>
 
-        <div class="learn-list">
 
-            <div class="learn-item">
-                <strong>💼 Trabalho</strong>
+        <div class="stats">
+
+            <div class="stat">
+                <strong id="finalScore">
+                    0
+                </strong>
                 <span>
-                    Observe como diferentes atividades econômicas e formas de
-                    trabalho ajudaram a construir a sociedade paranaense.
+                    PONTOS
                 </span>
             </div>
 
-            <div class="learn-item">
-                <strong>💰 Economia</strong>
+            <div class="stat">
+                <strong id="finalAcertos">
+                    0
+                </strong>
                 <span>
-                    Produtos agrícolas, comércio, indústria e serviços
-                    participaram das transformações econômicas do estado.
+                    ACERTOS
                 </span>
             </div>
 
-            <div class="learn-item">
-                <strong>🖤 Presença negra no Paraná</strong>
+            <div class="stat">
+                <strong id="finalErros">
+                    0
+                </strong>
                 <span>
-                    A história do Paraná também é marcada pela presença e
-                    participação de comunidades negras em diferentes regiões,
-                    profissões e manifestações culturais.
-                </span>
-            </div>
-
-            <div class="learn-item">
-                <strong>🏙️ Urbanização</strong>
-                <span>
-                    O crescimento urbano modificou o espaço, a infraestrutura,
-                    o transporte e as relações sociais.
-                </span>
-            </div>
-
-            <div class="learn-item">
-                <strong>🎨 Arte</strong>
-                <span>
-                    Produções artísticas ajudam a registrar experiências,
-                    identidades e transformações culturais.
-                </span>
-            </div>
-
-            <div class="learn-item">
-                <strong>🧠 Memória</strong>
-                <span>
-                    Lugares, fotografias, relatos, objetos e patrimônios podem
-                    preservar lembranças coletivas.
+                    ERROS
                 </span>
             </div>
 
         </div>
 
-        <div class="controls">
-            <button class="btn btn-primary" onclick="closeLearn()">
-                VOLTAR AO JOGO
-            </button>
-        </div>
 
-    </div>
+        <div class="modal-buttons">
 
-</div>
-
-
-<!-- ================= MODAL FINAL ================= -->
-
-<div class="end-modal" id="endModal">
-
-    <div class="modal end-content">
-
-        <div class="trophy">🏆</div>
-
-        <h2>Missão concluída!</h2>
-
-        <p>
-            Você explorou diferentes aspectos da história e da sociedade
-            paranaense.
-        </p>
-
-        <div class="final-score" id="finalScore">
-            0
-        </div>
-
-        <div class="rank" id="rank">
-            EXPLORADOR DO PARANÁ
-        </div>
-
-        <p id="finalStats"></p>
-
-        <div class="controls">
-
-            <button class="btn btn-primary" onclick="closeEnd();startGame();">
+            <button
+                class="main-btn primary"
+                onclick="fecharModal();novoJogo();">
                 🔄 JOGAR NOVAMENTE
             </button>
 
-            <button class="btn btn-secondary" onclick="closeEnd();openLearn();">
-                📚 REVISAR
+            <button
+                class="main-btn secondary"
+                onclick="fecharModal();irTemas();">
+                📚 VER TEMAS
             </button>
 
         </div>
@@ -1343,811 +1457,821 @@ footer strong{
 </div>
 
 
-<div class="toast" id="toast"></div>
+<div
+    class="toast"
+    id="toast">
+</div>
 
 
 <script>
 
-/* =========================================================
-   BANCO DE CARTAS
-========================================================= */
+/* =====================================================
+   BANCO DE PERGUNTAS
+===================================================== */
 
-const allCards = [
+const perguntas = [
 
-{
-    category:"trabalho",
-    icon:"💼",
-    title:"Trabalho e sociedade",
-    question:"Qual setor reúne atividades como comércio, transporte, educação e saúde?",
-    answer:"Setor de serviços.",
-    explanation:"O setor de serviços reúne muitas atividades ligadas ao atendimento das necessidades da população e das empresas."
-},
+    {
+        categoria:"trabalho",
+        nomeCategoria:"💼 Trabalho",
+        icone:"💼",
 
-{
-    category:"trabalho",
-    icon:"🌾",
-    title:"Trabalho no campo",
-    question:"Qual atividade teve papel importante na formação econômica do Paraná?",
-    answer:"Agricultura.",
-    explanation:"A agricultura possui grande importância histórica e econômica no território paranaense."
-},
+        pergunta:"Qual atividade é muito importante para o trabalho no campo?",
 
-{
-    category:"economia",
-    icon:"☕",
-    title:"Café",
-    question:"Qual produto agrícola teve grande importância econômica no norte do Paraná durante o século XX?",
-    answer:"Café.",
-    explanation:"A expansão cafeeira participou do crescimento econômico e da ocupação de áreas do norte do estado."
-},
+        respostas:["agricultura","agricultura.", "a agricultura"],
 
-{
-    category:"economia",
-    icon:"🌿",
-    title:"Erva-mate",
-    question:"Qual produto vegetal foi historicamente importante para a economia paranaense?",
-    answer:"Erva-mate.",
-    explanation:"A erva-mate teve importância econômica e comercial na história do Paraná."
-},
+        respostaCorreta:"Agricultura",
 
-{
-    category:"economia",
-    icon:"🏭",
-    title:"Indústria",
-    question:"O crescimento industrial contribuiu para transformar o Paraná principalmente em quê?",
-    answer:"Em uma economia mais diversificada.",
-    explanation:"A industrialização ampliou as atividades econômicas para além da produção agrícola."
-},
+        explicacao:"A agricultura é uma atividade importante para o trabalho e para a economia do Paraná."
+    },
 
-{
-    category:"negra",
-    icon:"🖤",
-    title:"Presença negra",
-    question:"A presença negra no Paraná faz parte de quais dimensões da história do estado?",
-    answer:"Trabalho, cultura e sociedade.",
-    explanation:"Comunidades negras participaram da formação social, econômica e cultural do Paraná."
-},
+    {
+        categoria:"trabalho",
+        nomeCategoria:"💼 Trabalho",
+        icone:"👩‍💼",
 
-{
-    category:"negra",
-    icon:"🥁",
-    title:"Cultura",
-    question:"Qual elemento pode preservar e transmitir tradições culturais entre gerações?",
-    answer:"Manifestações culturais.",
-    explanation:"Música, dança, festas, culinária, religiosidade, oralidade e outras manifestações ajudam a preservar identidades."
-},
+        pergunta:"Como chamamos a pessoa que realiza uma profissão?",
 
-{
-    category:"negra",
-    icon:"📜",
-    title:"Memória negra",
-    question:"Por que preservar documentos e relatos de comunidades negras é importante?",
-    answer:"Para ampliar e preservar a memória histórica.",
-    explanation:"Fontes históricas ajudam a reconhecer experiências e contribuições que fazem parte da formação da sociedade."
-},
+        respostas:["trabalhador","trabalhadora","profissional","trabalhador(a)"],
 
-{
-    category:"urbanizacao",
-    icon:"🏙️",
-    title:"Urbanização",
-    question:"O que é urbanização?",
-    answer:"Processo de crescimento e transformação das cidades.",
-    explanation:"A urbanização envolve mudanças na população, no espaço urbano, na infraestrutura e nas atividades econômicas."
-},
+        respostaCorreta:"Trabalhador ou profissional",
 
-{
-    category:"urbanizacao",
-    icon:"🚌",
-    title:"Cidade",
-    question:"Qual elemento urbano ajuda a conectar diferentes áreas de uma cidade?",
-    answer:"Transporte.",
-    explanation:"Sistemas de transporte permitem deslocamentos entre bairros e regiões, influenciando a organização urbana."
-},
+        explicacao:"Trabalhador e profissional são formas de se referir a quem exerce uma atividade profissional."
+    },
 
-{
-    category:"urbanizacao",
-    icon:"🏗️",
-    title:"Transformações urbanas",
-    question:"O crescimento das cidades pode alterar o quê?",
-    answer:"Espaços, infraestrutura e formas de viver.",
-    explanation:"Novas moradias, ruas, serviços e atividades econômicas transformam o espaço urbano."
-},
+    {
+        categoria:"trabalho",
+        nomeCategoria:"💼 Trabalho",
+        icone:"🏪",
 
-{
-    category:"arte",
-    icon:"🎨",
-    title:"Arte e identidade",
-    question:"Como a arte pode ajudar a compreender uma sociedade?",
-    answer:"Registrando ideias, costumes e experiências.",
-    explanation:"Obras artísticas podem expressar identidades, acontecimentos e diferentes formas de interpretar o mundo."
-},
+        pergunta:"Qual atividade envolve a compra e venda de produtos?",
 
-{
-    category:"arte",
-    icon:"🎭",
-    title:"Manifestações",
-    question:"Qual destes pode ser uma manifestação artística?",
-    answer:"Teatro.",
-    explanation:"Teatro, música, dança, literatura e artes visuais são exemplos de manifestações artísticas."
-},
+        respostas:["comércio","comercio","comércio."],
 
-{
-    category:"arte",
-    icon:"🏛️",
-    title:"Patrimônio",
-    question:"Um prédio histórico pode ser considerado parte do patrimônio cultural?",
-    answer:"Sim.",
-    explanation:"Edificações, lugares e objetos podem ter valor histórico e cultural para uma comunidade."
-},
+        respostaCorreta:"Comércio",
 
-{
-    category:"memoria",
-    icon:"🧠",
-    title:"Memória coletiva",
-    question:"O que é memória coletiva?",
-    answer:"Lembranças compartilhadas por uma comunidade.",
-    explanation:"A memória coletiva é construída socialmente por meio de experiências, relatos, símbolos e práticas."
-},
+        explicacao:"O comércio envolve a compra e venda de produtos e faz parte da economia."
+    },
 
-{
-    category:"memoria",
-    icon:"📷",
-    title:"Fotografia",
-    question:"Por que fotografias antigas podem ser fontes históricas?",
-    answer:"Porque registram pessoas, lugares e momentos.",
-    explanation:"Fotografias podem fornecer informações sobre modos de vida, espaços e acontecimentos de determinado período."
-},
+    {
+        categoria:"economia",
+        nomeCategoria:"💰 Economia",
+        icone:"☕",
 
-{
-    category:"memoria",
-    icon:"🏛️",
-    title:"Patrimônio histórico",
-    question:"Qual é uma função da preservação do patrimônio histórico?",
-    answer:"Manter referências importantes para as próximas gerações.",
-    explanation:"A preservação permite que objetos, lugares e documentos continuem contribuindo para a memória social."
-},
+        pergunta:"Qual produto foi muito importante para a economia do norte do Paraná?",
 
-{
-    category:"trabalho",
-    icon:"👩‍🌾",
-    title:"Diversidade profissional",
-    question:"Por que diferentes profissões são importantes para uma sociedade?",
-    answer:"Porque atendem necessidades diferentes.",
-    explanation:"Uma sociedade depende de diferentes atividades profissionais para funcionar e atender sua população."
-},
+        respostas:["café","cafe","café."],
 
-{
-    category:"economia",
-    icon:"🚂",
-    title:"Transporte e economia",
-    question:"Por que ferrovias e estradas podem influenciar a economia?",
-    answer:"Porque facilitam circulação de pessoas e mercadorias.",
-    explanation:"Infraestrutura de transporte conecta regiões produtoras, cidades e mercados."
-},
+        respostaCorreta:"Café",
 
-{
-    category:"urbanizacao",
-    icon:"🏠",
-    title:"Crescimento urbano",
-    question:"Quando muitas pessoas passam a viver em cidades, qual processo pode ocorrer?",
-    answer:"Urbanização.",
-    explanation:"Urbanização está relacionada ao crescimento da população urbana e às transformações das cidades."
-},
+        explicacao:"O café teve grande importância econômica e ajudou no crescimento de várias áreas do norte do Paraná."
+    },
 
-{
-    category:"memoria",
-    icon:"🗿",
-    title:"Memória e lugar",
-    question:"Por que lugares históricos podem ser importantes para uma comunidade?",
-    answer:"Porque ajudam a preservar histórias e identidades.",
-    explanation:"Espaços históricos podem funcionar como referências para a memória de grupos e comunidades."
-}
+    {
+        categoria:"economia",
+        nomeCategoria:"💰 Economia",
+        icone:"🌿",
+
+        pergunta:"Qual planta teve grande importância histórica para a economia do Paraná?",
+
+        respostas:["erva mate","erva-mate","erva mate.","erva-mate."],
+
+        respostaCorreta:"Erva-mate",
+
+        explicacao:"A erva-mate foi um produto importante para a economia e para o comércio do Paraná."
+    },
+
+    {
+        categoria:"economia",
+        nomeCategoria:"💰 Economia",
+        icone:"🏭",
+
+        pergunta:"Qual setor transforma matérias-primas em produtos?",
+
+        respostas:["indústria","industria","indústria."],
+
+        respostaCorreta:"Indústria",
+
+        explicacao:"A indústria transforma matérias-primas em diferentes produtos."
+    },
+
+    {
+        categoria:"negra",
+        nomeCategoria:"🖤 Presença negra",
+        icone:"🖤",
+
+        pergunta:"A população negra faz parte da história do Paraná?",
+
+        respostas:["sim","sim.","sim, faz","sim faz"],
+
+        respostaCorreta:"Sim",
+
+        explicacao:"A população negra faz parte da formação histórica, social, cultural e econômica do Paraná."
+    },
+
+    {
+        categoria:"negra",
+        nomeCategoria:"🖤 Presença negra",
+        icone:"🥁",
+
+        pergunta:"A população negra contribuiu para a cultura do Paraná?",
+
+        respostas:["sim","sim.","sim, contribuiu","sim contribuiu"],
+
+        respostaCorreta:"Sim",
+
+        explicacao:"A presença negra contribuiu para diferentes manifestações culturais, sociais e religiosas."
+    },
+
+    {
+        categoria:"negra",
+        nomeCategoria:"🖤 Presença negra",
+        icone:"📚",
+
+        pergunta:"Por que é importante estudar a presença negra na história do Paraná?",
+
+        respostas:[
+            "para conhecer a história",
+            "conhecer a história",
+            "para conhecer a história do paraná",
+            "conhecer a história do paraná",
+            "para conhecer a história do Paraná"
+        ],
+
+        respostaCorreta:"Para conhecer e valorizar a história",
+
+        explicacao:"Conhecer diferentes experiências e contribuições ajuda a compreender melhor a formação da sociedade paranaense."
+    },
+
+    {
+        categoria:"urbanizacao",
+        nomeCategoria:"🏙️ Urbanização",
+        icone:"🏙️",
+
+        pergunta:"Como chamamos o crescimento e a transformação das cidades?",
+
+        respostas:["urbanização","urbanizacao","urbanização."],
+
+        respostaCorreta:"Urbanização",
+
+        explicacao:"Urbanização é o processo relacionado ao crescimento e às transformações das cidades."
+    },
+
+    {
+        categoria:"urbanizacao",
+        nomeCategoria:"🏙️ Urbanização",
+        icone:"🚌",
+
+        pergunta:"O que ajuda as pessoas a se deslocarem pela cidade?",
+
+        respostas:["transporte","transportes","transporte público","transporte publico"],
+
+        respostaCorreta:"Transporte",
+
+        explicacao:"O transporte permite a circulação das pessoas entre diferentes lugares da cidade."
+    },
+
+    {
+        categoria:"urbanizacao",
+        nomeCategoria:"🏙️ Urbanização",
+        icone:"🏠",
+
+        pergunta:"O crescimento das cidades pode aumentar a necessidade de quê?",
+
+        respostas:[
+            "moradias",
+            "moradia",
+            "serviços",
+            "infraestrutura",
+            "moradias e serviços",
+            "infraestrutura e serviços"
+        ],
+
+        respostaCorreta:"Moradias, serviços e infraestrutura",
+
+        explicacao:"O crescimento urbano aumenta a necessidade de moradias, transporte, serviços e infraestrutura."
+    },
+
+    {
+        categoria:"arte",
+        nomeCategoria:"🎨 Arte",
+        icone:"🎨",
+
+        pergunta:"Qual forma de arte utiliza sons e pode ser cantada?",
+
+        respostas:["música","musica","música."],
+
+        respostaCorreta:"Música",
+
+        explicacao:"A música é uma forma de expressão artística baseada principalmente em sons."
+    },
+
+    {
+        categoria:"arte",
+        nomeCategoria:"🎨 Arte",
+        icone:"🎭",
+
+        pergunta:"Qual arte utiliza atores para representar histórias?",
+
+        respostas:["teatro","teatro."],
+
+        respostaCorreta:"Teatro",
+
+        explicacao:"No teatro, atores representam personagens e histórias diante de um público."
+    },
+
+    {
+        categoria:"arte",
+        nomeCategoria:"🎨 Arte",
+        icone:"📖",
+
+        pergunta:"A literatura pode ajudar a preservar histórias e culturas?",
+
+        respostas:["sim","sim.","sim, pode","sim pode"],
+
+        respostaCorreta:"Sim",
+
+        explicacao:"A literatura pode registrar experiências, ideias, costumes e diferentes formas de enxergar a sociedade."
+    },
+
+    {
+        categoria:"memoria",
+        nomeCategoria:"🧠 Memória",
+        icone:"📷",
+
+        pergunta:"Uma fotografia antiga pode ajudar a conhecer o passado?",
+
+        respostas:["sim","sim.","sim, pode","sim pode"],
+
+        respostaCorreta:"Sim",
+
+        explicacao:"Fotografias podem registrar pessoas, lugares, costumes e acontecimentos de outras épocas."
+    },
+
+    {
+        categoria:"memoria",
+        nomeCategoria:"🧠 Memória",
+        icone:"🏛️",
+
+        pergunta:"Como chamamos um lugar ou objeto importante para a história e cultura de uma sociedade?",
+
+        respostas:["patrimônio","patrimonio","patrimônio cultural","patrimonio cultural"],
+
+        respostaCorreta:"Patrimônio",
+
+        explicacao:"Patrimônios podem ser lugares, objetos, documentos e manifestações considerados importantes para a memória e cultura."
+    },
+
+    {
+        categoria:"memoria",
+        nomeCategoria:"🧠 Memória",
+        icone:"🧠",
+
+        pergunta:"O que ajuda uma comunidade a lembrar de sua história?",
+
+        respostas:[
+            "memória",
+            "memórias",
+            "patrimônio",
+            "patrimonio",
+            "documentos",
+            "fotografias",
+            "memória e patrimônio"
+        ],
+
+        respostaCorreta:"Memória, documentos, lugares e patrimônios",
+
+        explicacao:"A memória é preservada por diferentes fontes, como relatos, fotografias, documentos, lugares e patrimônios."
+    }
 
 ];
 
 
-/* =========================================================
-   VARIÁVEIS
-========================================================= */
+/* =====================================================
+   VARIÁVEIS DO JOGO
+===================================================== */
 
-let cards = [];
-let currentCategory = "todos";
+let perguntasAtuais = [];
+let perguntaIndex = 0;
 
-let score = 0;
-let hits = 0;
-let misses = 0;
+let pontuacao = 0;
+let acertos = 0;
+let erros = 0;
 let combo = 0;
-let answered = 0;
 
-let gameStarted = false;
-let timer = 90;
-let timerInterval = null;
+let tempo = 120;
+let intervalo = null;
 
-let selectedCards = [];
-
-const TOTAL_CARDS = 12;
+let categoriaSelecionada = "todos";
+let jogoAtivo = false;
+let perguntaRespondida = false;
 
 
-/* =========================================================
+/* =====================================================
    ELEMENTOS
-========================================================= */
+===================================================== */
 
-const cardsGrid = document.getElementById("cardsGrid");
-const scoreEl = document.getElementById("score");
-const hitsEl = document.getElementById("hits");
-const missesEl = document.getElementById("misses");
-const comboEl = document.getElementById("combo");
-const timerEl = document.getElementById("timer");
-const progressText = document.getElementById("progressText");
+const scoreElement = document.getElementById("score");
+const acertosElement = document.getElementById("acertos");
+const errosElement = document.getElementById("erros");
+const comboElement = document.getElementById("combo");
+const tempoElement = document.getElementById("tempo");
+
+const questionText = document.getElementById("questionText");
+const questionIcon = document.getElementById("questionIcon");
+const categoriaAtual = document.getElementById("categoriaAtual");
+const questaoAtual = document.getElementById("questaoAtual");
+
+const answerInput = document.getElementById("answerInput");
+const submitBtn = document.getElementById("submitBtn");
+
+const result = document.getElementById("result");
+const resultTitle = document.getElementById("resultTitle");
+const resultAnswer = document.getElementById("resultAnswer");
+const resultExplanation = document.getElementById("resultExplanation");
+
 const progressFill = document.getElementById("progressFill");
-const toast = document.getElementById("toast");
+const numeroPergunta = document.getElementById("numeroPergunta");
 
 
-/* =========================================================
-   EMBARALHAR
-========================================================= */
+/* =====================================================
+   NORMALIZAR TEXTO
+===================================================== */
 
-function shuffle(array){
+function normalizar(texto){
 
-    const copy = [...array];
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .replace(/[.,!?]/g,"")
+        .trim();
 
-    for(let i=copy.length-1;i>0;i--){
-
-        const j = Math.floor(Math.random()*(i+1));
-
-        [copy[i],copy[j]] = [copy[j],copy[i]];
-    }
-
-    return copy;
 }
 
 
-/* =========================================================
-   INICIAR JOGO
-========================================================= */
+/* =====================================================
+   EMBARALHAR
+===================================================== */
 
-function startGame(){
+function embaralhar(lista){
 
-    score = 0;
-    hits = 0;
-    misses = 0;
-    combo = 0;
-    answered = 0;
-    timer = 90;
-    gameStarted = true;
+    const copia = [...lista];
 
-    clearInterval(timerInterval);
+    for(let i=copia.length-1;i>0;i--){
 
-    updateHUD();
+        const j = Math.floor(Math.random()*(i+1));
 
-    let source = currentCategory === "todos"
-        ? allCards
-        : allCards.filter(card => card.category === currentCategory);
+        [copia[i],copia[j]] =
+        [copia[j],copia[i]];
 
-    cards = shuffle(source).slice(0,TOTAL_CARDS);
-
-    if(cards.length < TOTAL_CARDS){
-        cards = shuffle(allCards).slice(0,TOTAL_CARDS);
     }
 
-    selectedCards = [];
+    return copia;
+}
 
-    renderCards();
 
-    timerInterval = setInterval(()=>{
+/* =====================================================
+   NOVO JOGO
+===================================================== */
 
-        timer--;
+function novoJogo(){
 
-        timerEl.textContent = timer + "s";
+    pontuacao = 0;
+    acertos = 0;
+    erros = 0;
+    combo = 0;
 
-        if(timer <= 10){
-            timerEl.style.color = "#ff6b6b";
+    tempo = 120;
+
+    perguntaIndex = 0;
+
+    jogoAtivo = true;
+
+    perguntaRespondida = false;
+
+    clearInterval(intervalo);
+
+    let lista;
+
+    if(categoriaSelecionada === "todos"){
+
+        lista = perguntas;
+
+    }else{
+
+        lista = perguntas.filter(
+            p => p.categoria === categoriaSelecionada
+        );
+
+    }
+
+    perguntasAtuais =
+        embaralhar(lista);
+
+    atualizarHUD();
+
+    carregarPergunta();
+
+    intervalo = setInterval(()=>{
+
+        tempo--;
+
+        tempoElement.textContent =
+            tempo + "s";
+
+        if(tempo <= 10){
+
+            tempoElement.style.color =
+                "#ff6666";
+
         }else{
-            timerEl.style.color = "";
+
+            tempoElement.style.color =
+                "";
+
         }
 
-        if(timer <= 0){
-            clearInterval(timerInterval);
-            endGame();
+        if(tempo <= 0){
+
+            clearInterval(intervalo);
+
+            jogoAtivo = false;
+
+            mostrarFinal();
+
         }
 
     },1000);
 
-    scrollToGame();
+    irJogo();
 
-    showToast("🎴 A missão começou!");
-}
-
-
-/* =========================================================
-   RENDERIZAR CARTAS
-========================================================= */
-
-function renderCards(){
-
-    cardsGrid.innerHTML = "";
-
-    cards.forEach((card,index)=>{
-
-        const element = document.createElement("div");
-
-        element.className = "card";
-
-        element.dataset.index = index;
-
-        element.innerHTML = `
-
-            <div class="card-inner">
-
-                <div class="card-face card-front">
-
-                    <div class="card-symbol">
-                        ${card.icon}
-                    </div>
-
-                    <div>
-                        <h3>${card.title}</h3>
-                        <small>Toque para descobrir</small>
-                    </div>
-
-                </div>
-
-                <div class="card-face card-back">
-
-                    <div class="tag">
-                        ${getCategoryName(card.category)}
-                    </div>
-
-                    <h3>${card.question}</h3>
-
-                    <p>
-                        ${card.explanation}
-                    </p>
-
-                    <div class="answer">
-                        💡 Resposta: ${card.answer}
-                    </div>
-
-                </div>
-
-            </div>
-
-        `;
-
-        element.addEventListener("click",()=>{
-
-            flipCard(element,index);
-
-        });
-
-        cardsGrid.appendChild(element);
-
-    });
-
-    updateProgress();
+    mostrarToast("🎴 Jogo iniciado!");
 
 }
 
 
-/* =========================================================
-   VIRAR CARTA
-========================================================= */
+/* =====================================================
+   CARREGAR PERGUNTA
+===================================================== */
 
-function flipCard(element,index){
+function carregarPergunta(){
 
-    if(!gameStarted) return;
+    if(perguntaIndex >= perguntasAtuais.length){
 
-    if(element.classList.contains("flipped")) return;
+        mostrarFinal();
 
-    if(element.dataset.done === "true") return;
+        return;
 
-    element.classList.add("flipped");
+    }
 
-    const card = cards[index];
+    const pergunta =
+        perguntasAtuais[perguntaIndex];
+
+    perguntaRespondida = false;
+
+    questionIcon.textContent =
+        pergunta.icone;
+
+    questionText.textContent =
+        pergunta.pergunta;
+
+    categoriaAtual.textContent =
+        pergunta.nomeCategoria;
+
+    questaoAtual.textContent =
+        "PERGUNTA " +
+        String(perguntaIndex + 1).padStart(2,"0");
+
+    numeroPergunta.textContent =
+        `${perguntaIndex + 1} / ${perguntasAtuais.length}`;
+
+    answerInput.value = "";
+
+    answerInput.disabled = false;
+
+    submitBtn.disabled = false;
+
+    result.className = "result";
+
+    resultTitle.textContent = "";
+
+    resultAnswer.textContent = "";
+
+    resultExplanation.textContent = "";
+
+    atualizarProgresso();
 
     setTimeout(()=>{
+        answerInput.focus();
+    },100);
 
-        const correct = confirm(
-            "Pergunta:\n\n" +
-            card.question +
-            "\n\nSua resposta foi:\n\n" +
-            card.answer +
-            "\n\nVocê acertou?"
+}
+
+
+/* =====================================================
+   RESPONDER
+===================================================== */
+
+function responder(){
+
+    if(!jogoAtivo) return;
+
+    if(perguntaRespondida) return;
+
+    const respostaUsuario =
+        normalizar(answerInput.value);
+
+    if(respostaUsuario === ""){
+
+        mostrarToast("✍️ Escreva uma resposta primeiro!");
+
+        answerInput.focus();
+
+        return;
+
+    }
+
+    const pergunta =
+        perguntasAtuais[perguntaIndex];
+
+    const acertou =
+        pergunta.respostas.some(
+            resposta =>
+                normalizar(resposta) === respostaUsuario
         );
 
-        if(correct){
+    perguntaRespondida = true;
 
-            registerCorrect(element);
+    answerInput.disabled = true;
 
-        }else{
+    submitBtn.disabled = true;
 
-            registerWrong(element);
+    result.classList.add("show");
+
+
+    if(acertou){
+
+        acertos++;
+
+        combo++;
+
+        let pontosGanhos = 100;
+
+        if(combo >= 3){
+
+            pontosGanhos += 25;
 
         }
 
-    },500);
+        pontuacao += pontosGanhos;
 
-}
+        result.classList.add("correct");
 
+        resultTitle.textContent =
+            "✅ ACERTOU!";
 
-/* =========================================================
-   ACERTO
-========================================================= */
+        resultAnswer.textContent =
+            "Resposta correta: " +
+            pergunta.respostaCorreta;
 
-function registerCorrect(element){
+        resultExplanation.textContent =
+            pergunta.explicacao;
 
-    element.dataset.done = "true";
+        mostrarToast(
+            "🔥 Acertou! +" +
+            pontosGanhos +
+            " pontos"
+        );
 
-    element.classList.add("correct");
+        confetes();
 
-    hits++;
-    answered++;
-    combo++;
+        som("acerto");
 
-    let points = 100;
-
-    if(combo >= 3){
-        points += combo * 25;
-    }
-
-    if(timer > 60){
-        points += 20;
-    }
-
-    score += points;
-
-    createConfetti();
-
-    playSound("correct");
-
-    showToast("🔥 ACERTOU! +" + points + " pontos");
-
-    updateHUD();
-    updateProgress();
-
-    checkEnd();
-
-}
-
-
-/* =========================================================
-   ERRO
-========================================================= */
-
-function registerWrong(element){
-
-    element.dataset.done = "true";
-
-    element.classList.add("wrong");
-
-    misses++;
-    answered++;
-    combo = 0;
-
-    score = Math.max(0,score - 20);
-
-    playSound("wrong");
-
-    showToast("💭 Quase! -20 pontos");
-
-    updateHUD();
-    updateProgress();
-
-    checkEnd();
-
-}
-
-
-/* =========================================================
-   CHECAR FINAL
-========================================================= */
-
-function checkEnd(){
-
-    if(answered >= cards.length){
-
-        setTimeout(endGame,700);
-
-    }
-
-}
-
-
-/* =========================================================
-   FINAL
-========================================================= */
-
-function endGame(){
-
-    if(!gameStarted) return;
-
-    gameStarted = false;
-
-    clearInterval(timerInterval);
-
-    document.getElementById("finalScore").textContent = score;
-
-    let rank = "";
-
-    if(score >= 1100){
-        rank = "🏆 MESTRE DA MEMÓRIA PARANAENSE";
-    }else if(score >= 800){
-        rank = "🥇 EXPLORADOR DO PARANÁ";
-    }else if(score >= 500){
-        rank = "🥈 PESQUISADOR EM TREINAMENTO";
     }else{
-        rank = "🌱 APRENDIZ DA HISTÓRIA";
+
+        erros++;
+
+        combo = 0;
+
+        result.classList.add("wrong");
+
+        resultTitle.textContent =
+            "❌ NÃO FOI DESSA VEZ!";
+
+        resultAnswer.textContent =
+            "Resposta correta: " +
+            pergunta.respostaCorreta;
+
+        resultExplanation.textContent =
+            pergunta.explicacao;
+
+        mostrarToast(
+            "💭 Continue tentando!"
+        );
+
+        som("erro");
+
     }
 
-    document.getElementById("rank").textContent = rank;
-
-    document.getElementById("finalStats").innerHTML =
-        `Você teve <strong>${hits}</strong> acertos,
-        <strong>${misses}</strong> erros e chegou a
-        <strong>x${combo}</strong> de combo.`;
-
-    const best = Number(localStorage.getItem("memoriaPRBest") || 0);
-
-    if(score > best){
-
-        localStorage.setItem("memoriaPRBest",score);
-
-        document.getElementById("finalStats").innerHTML +=
-            `<br><br>⭐ Novo recorde pessoal!`;
-
-        createConfetti();
-
-    }
-
-    document.getElementById("endModal").classList.add("show");
+    atualizarHUD();
 
 }
 
 
-/* =========================================================
+/* =====================================================
+   PRÓXIMA PERGUNTA
+===================================================== */
+
+function proximaPergunta(){
+
+    if(!perguntaRespondida){
+
+        return;
+
+    }
+
+    perguntaIndex++;
+
+    if(perguntaIndex >= perguntasAtuais.length){
+
+        mostrarFinal();
+
+        return;
+
+    }
+
+    carregarPergunta();
+
+}
+
+
+/* =====================================================
    HUD
-========================================================= */
+===================================================== */
 
-function updateHUD(){
+function atualizarHUD(){
 
-    scoreEl.textContent = score;
-    hitsEl.textContent = hits;
-    missesEl.textContent = misses;
-    comboEl.textContent = "x" + combo;
-    timerEl.textContent = timer + "s";
+    scoreElement.textContent =
+        pontuacao;
+
+    acertosElement.textContent =
+        acertos;
+
+    errosElement.textContent =
+        erros;
+
+    comboElement.textContent =
+        "x" + combo;
+
+    tempoElement.textContent =
+        tempo + "s";
 
 }
 
 
-/* =========================================================
+/* =====================================================
    PROGRESSO
-========================================================= */
+===================================================== */
 
-function updateProgress(){
+function atualizarProgresso(){
 
-    progressText.textContent = answered + " / " + cards.length;
+    const porcentagem =
+        (perguntaIndex /
+        perguntasAtuais.length) * 100;
 
-    const percent = cards.length
-        ? (answered / cards.length) * 100
-        : 0;
-
-    progressFill.style.width = percent + "%";
-
-}
-
-
-/* =========================================================
-   CATEGORIAS
-========================================================= */
-
-function filterCategory(category,button){
-
-    document.querySelectorAll(".category").forEach(btn=>{
-        btn.classList.remove("active");
-    });
-
-    button.classList.add("active");
-
-    currentCategory = category;
-
-    startGame();
+    progressFill.style.width =
+        porcentagem + "%";
 
 }
 
 
-/* =========================================================
-   NOME DA CATEGORIA
-========================================================= */
+/* =====================================================
+   CATEGORIA
+===================================================== */
 
-function getCategoryName(category){
+function selecionarCategoria(categoria,botao){
 
-    const names = {
+    document
+        .querySelectorAll(".category")
+        .forEach(b =>
+            b.classList.remove("active")
+        );
 
-        trabalho:"💼 Trabalho",
-        economia:"💰 Economia",
-        negra:"🖤 Presença negra",
-        urbanizacao:"🏙️ Urbanização",
-        arte:"🎨 Arte",
-        memoria:"🧠 Memória"
+    botao.classList.add("active");
 
-    };
+    categoriaSelecionada =
+        categoria;
 
-    return names[category] || "Paraná";
+    novoJogo();
 
 }
 
 
-/* =========================================================
-   MODAL APRENDER
-========================================================= */
+/* =====================================================
+   FINAL
+===================================================== */
 
-function openLearn(){
+function mostrarFinal(){
 
-    document.getElementById("learningModal")
+    if(!jogoAtivo &&
+       perguntaIndex !== perguntasAtuais.length){
+        return;
+    }
+
+    jogoAtivo = false;
+
+    clearInterval(intervalo);
+
+    progressFill.style.width = "100%";
+
+    document.getElementById("finalScore")
+        .textContent =
+        pontuacao;
+
+    document.getElementById("finalAcertos")
+        .textContent =
+        acertos;
+
+    document.getElementById("finalErros")
+        .textContent =
+        erros;
+
+    let mensagem;
+
+    if(acertos === perguntasAtuais.length){
+
+        mensagem =
+            "🌟 Você acertou tudo! Memória histórica em nível lendário.";
+
+        confetes();
+
+    }else if(acertos >= perguntasAtuais.length * .7){
+
+        mensagem =
+            "👏 Excelente! Você mandou muito bem no desafio.";
+
+    }else if(acertos >= perguntasAtuais.length * .4){
+
+        mensagem =
+            "📚 Muito bom! Você já conhece bastante sobre os temas.";
+
+    }else{
+
+        mensagem =
+            "🌱 Continue estudando. Cada erro também ensina alguma coisa.";
+
+    }
+
+    document.getElementById("finalMessage")
+        .textContent =
+        mensagem;
+
+    document
+        .getElementById("finalModal")
         .classList.add("show");
 
 }
 
-function closeLearn(){
 
-    document.getElementById("learningModal")
+/* =====================================================
+   FECHAR MODAL
+===================================================== */
+
+function fecharModal(){
+
+    document
+        .getElementById("finalModal")
         .classList.remove("show");
 
 }
 
 
-/* =========================================================
-   MODAL FINAL
-========================================================= */
-
-function closeEnd(){
-
-    document.getElementById("endModal")
-        .classList.remove("show");
-
-}
-
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-function showToast(message){
-
-    toast.textContent = message;
-
-    toast.classList.add("show");
-
-    setTimeout(()=>{
-        toast.classList.remove("show");
-    },1800);
-
-}
-
-
-/* =========================================================
-   CONFETES
-========================================================= */
-
-function createConfetti(){
-
-    const emojis = ["✨","⭐","🟢","🟡","🎉","📚","🖤"];
-
-    for(let i=0;i<22;i++){
-
-        const piece = document.createElement("div");
-
-        piece.className = "confetti";
-
-        piece.textContent =
-            emojis[Math.floor(Math.random()*emojis.length)];
-
-        piece.style.left =
-            Math.random()*100 + "vw";
-
-        piece.style.fontSize =
-            (10 + Math.random()*16) + "px";
-
-        piece.style.animationDelay =
-            Math.random()*.4 + "s";
-
-        document.body.appendChild(piece);
-
-        setTimeout(()=>{
-            piece.remove();
-        },3200);
-
-    }
-
-}
-
-
-/* =========================================================
-   SONS
-========================================================= */
-
-function playSound(type){
-
-    try{
-
-        const AudioContext =
-            window.AudioContext ||
-            window.webkitAudioContext;
-
-        const ctx = new AudioContext();
-
-        const oscillator = ctx.createOscillator();
-
-        const gain = ctx.createGain();
-
-        oscillator.connect(gain);
-        gain.connect(ctx.destination);
-
-        if(type === "correct"){
-
-            oscillator.frequency.setValueAtTime(
-                500,
-                ctx.currentTime
-            );
-
-            oscillator.frequency.exponentialRampToValueAtTime(
-                900,
-                ctx.currentTime + .12
-            );
-
-        }else{
-
-            oscillator.frequency.setValueAtTime(
-                220,
-                ctx.currentTime
-            );
-
-            oscillator.frequency.exponentialRampToValueAtTime(
-                100,
-                ctx.currentTime + .15
-            );
-
-        }
-
-        gain.gain.setValueAtTime(
-            .07,
-            ctx.currentTime
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            .001,
-            ctx.currentTime + .2
-        );
-
-        oscillator.start();
-
-        oscillator.stop(
-            ctx.currentTime + .2
-        );
-
-    }catch(error){
-
-        console.log("Áudio indisponível.");
-
-    }
-
-}
-
-
-/* =========================================================
+/* =====================================================
    NAVEGAÇÃO
-========================================================= */
+===================================================== */
 
-function scrollToGame(){
+function irJogo(){
 
-    document.getElementById("game")
+    document
+        .getElementById("jogo")
         .scrollIntoView({
             behavior:"smooth"
         });
 
 }
 
-function goTop(){
+function irTemas(){
+
+    document
+        .getElementById("temas")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+function topo(){
 
     window.scrollTo({
         top:0,
@@ -2157,34 +2281,206 @@ function goTop(){
 }
 
 
-/* =========================================================
-   FECHAR MODAIS CLICANDO FORA
-========================================================= */
+/* =====================================================
+   TOAST
+===================================================== */
 
-document.getElementById("learningModal")
-.addEventListener("click",function(e){
+function mostrarToast(mensagem){
 
-    if(e.target === this){
-        closeLearn();
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent =
+        mensagem;
+
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+
+        toast.classList.remove("show");
+
+    },1800);
+
+}
+
+
+/* =====================================================
+   CONFETES
+===================================================== */
+
+function confetes(){
+
+    const emojis = [
+        "🎉",
+        "⭐",
+        "✨",
+        "💚",
+        "💛",
+        "🎊",
+        "🏆"
+    ];
+
+    for(let i=0;i<25;i++){
+
+        const confete =
+            document.createElement("div");
+
+        confete.className =
+            "confetti";
+
+        confete.textContent =
+            emojis[
+                Math.floor(
+                    Math.random() *
+                    emojis.length
+                )
+            ];
+
+        confete.style.left =
+            Math.random()*100 + "vw";
+
+        confete.style.fontSize =
+            (10 + Math.random()*18) + "px";
+
+        confete.style.animationDelay =
+            Math.random()*.4 + "s";
+
+        document.body.appendChild(
+            confete
+        );
+
+        setTimeout(()=>{
+            confete.remove();
+        },3000);
+
     }
 
-});
+}
 
-document.getElementById("endModal")
-.addEventListener("click",function(e){
 
-    if(e.target === this){
-        closeEnd();
+/* =====================================================
+   SOM
+===================================================== */
+
+function som(tipo){
+
+    try{
+
+        const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+        const audio =
+            new AudioContext();
+
+        const oscillator =
+            audio.createOscillator();
+
+        const gain =
+            audio.createGain();
+
+        oscillator.connect(gain);
+
+        gain.connect(audio.destination);
+
+        if(tipo === "acerto"){
+
+            oscillator.frequency.setValueAtTime(
+                500,
+                audio.currentTime
+            );
+
+            oscillator.frequency.exponentialRampToValueAtTime(
+                900,
+                audio.currentTime + .15
+            );
+
+        }else{
+
+            oscillator.frequency.setValueAtTime(
+                250,
+                audio.currentTime
+            );
+
+            oscillator.frequency.exponentialRampToValueAtTime(
+                130,
+                audio.currentTime + .15
+            );
+
+        }
+
+        gain.gain.setValueAtTime(
+            .06,
+            audio.currentTime
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .001,
+            audio.currentTime + .2
+        );
+
+        oscillator.start();
+
+        oscillator.stop(
+            audio.currentTime + .2
+        );
+
+    }catch(e){
+
+        console.log("Som indisponível.");
+
     }
 
-});
+}
 
 
-/* =========================================================
-   PRIMEIRA EXIBIÇÃO
-========================================================= */
+/* =====================================================
+   ENTER PARA RESPONDER
+===================================================== */
 
-renderCards();
+answerInput.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            responder();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   FECHAR MODAL CLICANDO FORA
+===================================================== */
+
+document
+    .getElementById("finalModal")
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(event.target === this){
+
+                fecharModal();
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   ESTADO INICIAL
+===================================================== */
+
+questionText.textContent =
+    "Clique em “Começar o jogo” para receber sua primeira pergunta!";
+
+questionIcon.textContent =
+    "🎴";
 
 </script>
 
